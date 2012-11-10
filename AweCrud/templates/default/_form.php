@@ -38,11 +38,11 @@
         if ($relation[0] == 'CManyManyRelation') {
             echo "<div class=\"row nm_row\">\n";
             echo $this->getNMField($relation, $relatedModelClass, $this->modelClass);
-            echo "</div>\n\n";
+            echo "\n</div>\n\n";
         }
     }
     ?>
-    <?php echo "<?php
+<?php echo "<?php
         echo CHtml::submitButton(Yii::t('app', 'Save'));
 echo CHtml::Button(Yii::t('app', 'Cancel'), array(
 			'submit' => 'javascript:history.go(-1)'));

@@ -20,7 +20,7 @@ $this->menu=array(
 
 <h1><?php echo "<?php echo \$model->{$this->getIdentificationColumn()}; ?>"; ?></h1>
 
-<?php echo '<?php'; ?> $this->widget('bootstrap.widgets.BootDetailView', array(
+<?php echo '<?php'; ?> $this->widget('bootstrap.widgets.TbDetailView', array(
 'data' => $model,
 'attributes' => array(
 <?php
@@ -35,7 +35,7 @@ foreach ($this->tableSchema->columns as $column){
 			$controller = $this->resolveController($relation);
 			$value = "(\$model->{$key} !== null)?";
 
-			$value .= "CHtml::link(\$model->{$key}->$identificationColumn, array('".Awecms::getPrimaryKey($relatedModel)."/view','".Awecms::getPrimaryKey($relatedModel)."'=>\$model->{$key}->".Awecms::getPrimaryKey($relatedModel).")).' '";
+			$value .= "CHtml::link(\$model->{$key}->$identificationColumn, array('".$controller."/view','".Awecms::getPrimaryKey($relatedModel)."'=>\$model->{$key}->".Awecms::getPrimaryKey($relatedModel).")).' '";
 			//$value .= ".CHtml::link(Yii::t('app','Update'), array('{$controller}/update','{$relatedModel->tableSchema->primaryKey}'=>\$model->{$key}->{$relatedModel->tableSchema->primaryKey}), array('class'=>'edit'))";
 			$value .= ":'n/a'";
 			
@@ -49,9 +49,9 @@ foreach ($this->tableSchema->columns as $column){
     else
         echo $this->getDetailViewAttribute($column);    
 }
-echo ")));";
+echo ")));\n";
 
-echo "?>";
+echo "?>\n";
         
 	
 	foreach (CActiveRecord::model(Yii::import($this->model))->relations() as $key => $relation) {
@@ -63,7 +63,7 @@ echo "?>";
 		if ($relation[0] == 'CManyManyRelation' || $relation[0] == 'CHasManyRelation') {
                         $relatedModel = CActiveRecord::model($relation[1]);
                         $identificationColumn = AweCrudCode::getIdentificationColumnFromTableSchema($relatedModel->tableSchema);
-			echo '<h2>';
+			echo "\n<h2>";
 			echo "<?php echo CHtml::link(Yii::t('app','" . ucfirst($key) . "'), array('".$controller."'));?>";
 			echo "</h2>\n";
 			echo CHtml::openTag('ul');
@@ -72,8 +72,9 @@ echo "?>";
 					echo '<li>';
 					echo CHtml::link(\$foreignobj->{$identificationColumn}, array('{$controller}/view','{$pk}'=>\$foreignobj->{$pk}));\n							
 					}
-						?>";
+						?>\n";
 			echo CHtml::closeTag('ul');
+			echo "\n";
 
 		}
 		

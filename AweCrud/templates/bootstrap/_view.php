@@ -45,11 +45,11 @@
             } else if (in_array($column->dbType, $this->booleanTypes)) {
                 echo "
                 <?php
-                echo CHtml::encode(\$data->{$columnName} == 1 ? 'True' : 'False');
+                echo CHtml::encode(\$data->{$columnName} == 1 ? Yii::t('app', 'Yes') : Yii::t('app', 'No'));
                 ?>
 
             </div>
-        </div>";
+        </div>\n";
             } else if (in_array(strtolower($columnName), $this->emailFields)) {
                 echo "
                 <?php
@@ -57,7 +57,7 @@
                 ?>
 
             </div>
-        </div>";
+        </div>\n";
             } else if (in_array($column->dbType, array('longtext'))) {
                 echo "
                 <?php
@@ -65,7 +65,7 @@
                 ?>
 
             </div>
-        </div>";
+        </div>\n";
             } else if (in_array(strtolower($columnName), $this->imageFields)) {
                 
                 /*
@@ -75,8 +75,8 @@
                 /*
                 echo 'echo "</a>";
                  */
-                echo "</div>";
-                echo "</div>";
+                echo "</div>\n";
+                echo "</div>\n";
             } else if (in_array(strtolower($columnName), $this->urlFields)) {
                 echo "
                 <?php
@@ -93,7 +93,7 @@
                 ?>
 
             </div>
-        </div>";
+        </div>\n";
             }
 
             if (!in_array($column->dbType,$this->booleanTypes)) echo "

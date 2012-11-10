@@ -39,20 +39,22 @@ echo "<?php echo Yii::t('app', '" . $this->pluralize($this->class2name($this->mo
     'model'=>\$model,
 )); ?>\n"; ?>
 </div><!-- search-form -->
-<?php echo '<?php'; ?> $this->widget('bootstrap.widgets.BootGridView', array(
-'id' => '<?php echo $this->class2id($this->modelClass); ?>-grid',
-'type'=>'striped bordered condensed',
-'dataProvider' => $model->search(),
-'filter' => $model,
-'columns' => array(
+<?php echo '<?php'; ?> 
+$this->widget('bootstrap.widgets.TbGridView', array(
+	'id' => '<?php echo $this->class2id($this->modelClass); ?>-grid',
+	'type'=>'striped bordered condensed',
+	'dataProvider' => $model->search(),
+	'filter' => $model,
+	'columns' => array(
 <?php
 foreach ($this->tableSchema->columns as $column) {
-  echo "        " . $this->generateGridViewColumn($column) . ",\n";
+  echo "\t\t" . $this->generateGridViewColumn($column) . ",\n";
 }
 ?>
-array(
-'class'=>'bootstrap.widgets.BootButtonColumn',
-'htmlOptions'=>array('style'=>'width: 55px'),
-),
-),
-)); ?>
+		array(
+			'class'=>'bootstrap.widgets.TbButtonColumn',
+			'htmlOptions'=>array('style'=>'width: 55px'),
+		),
+	),
+)); 
+?>

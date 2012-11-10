@@ -14,7 +14,7 @@ $this->menu=array(
 );
 ?>
 
-<?php printf('<h1> %s %s </h1>', Yii::t('app', 'Create New'), $this->modelClass); ?>
+<?php echo '<?php printf(\'<h1> %s %s </h1>\', Yii::t(\'app\', \'Create New\'), Yii::t(\'app\', \'' . $this->modelClass . '\')); ?>'; ?>
 
 <?php echo "<?php\n"; ?>
 $this->renderPartial('_form', array(

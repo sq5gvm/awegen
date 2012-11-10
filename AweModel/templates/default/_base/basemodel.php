@@ -163,7 +163,7 @@ abstract class <?php echo 'Base' . $modelClass; ?> extends <?php echo $this->bas
         return array(
 <?php
         foreach($labels as $name=>$label) {
-            echo "            '$name' => Yii::t('app', '$label'),\n";
+            echo "            '$name' => Yii::t('app', '_.$tableName.$label'),\n";
             
         }
 ?>

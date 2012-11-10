@@ -49,7 +49,7 @@ foreach ($this->tableSchema->columns as $column){
     else
         echo $this->getDetailViewAttribute($column);    
 }
-echo ")));";
+echo ")));\n";
 
 echo "?>";
         
@@ -63,7 +63,7 @@ echo "?>";
 		if ($relation[0] == 'CManyManyRelation' || $relation[0] == 'CHasManyRelation') {
                         $relatedModel = CActiveRecord::model($relation[1]);
                         $identificationColumn = AweCrudCode::getIdentificationColumnFromTableSchema($relatedModel->tableSchema);
-			echo '<h2>';
+			echo "\n<h2>";
 			echo "<?php echo CHtml::link(Yii::t('app','" . ucfirst($key) . "'), array('".$controller."'));?>";
 			echo "</h2>\n";
 			echo CHtml::openTag('ul');
@@ -74,7 +74,7 @@ echo "?>";
 					}
 						?>";
 			echo CHtml::closeTag('ul');
-
+			echo "\n";
 		}
 		
 	}

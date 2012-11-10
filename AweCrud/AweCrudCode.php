@@ -245,7 +245,7 @@ class AweCrudCode extends CrudCode {
                                                                         'showButtonPanel'=>true,
                                                                         'changeYear'=>true,
                                                                         'changeMonth'=>true,
-                                                                        'dateFormat'=>'yy-mm-dd',
+                                                                        'dateFormat'=>'yyyy-mm-dd',
                                                                         ),
                                                     )
 					);

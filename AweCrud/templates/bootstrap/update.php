@@ -20,7 +20,7 @@ $this->menu=array(
 $pk = "\$model->" . $this->getIdentificationColumn();
 printf('<h1> %s %s </h1>',
 '<?php echo Yii::t(\'app\', \'Update\');?>',
-'<?php echo ' . $pk . '; ?>'); ?>
+'<?php echo Yii::t(\'app\', ' . $pk . '); ?>'); ?>
 
 <?php echo "<?php\n"; ?>
 $this->renderPartial('_form', array(
